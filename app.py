@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request
 import requests
+import logging
 
 API_URL = 'https://www.themealdb.com/api/json/v1/1/'
 
+app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('base.html')
