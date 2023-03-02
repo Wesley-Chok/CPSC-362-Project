@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  div.search-center {
+    text-align: center;
+  }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +20,19 @@
 </head>
 <body>
   <h1>Search Results for "{{ query }}"</h1>
-  <ul>
+  <div class="search-center">
+  <ul style="display: inline-block; text-align: center;">
     {% for result in results %}
-      <li>
+      <li style="text-align: center; display: inline-block;">
         <a href="/recipe/{{ result['idMeal'] }}">
           {{ result['strMeal'] }}
-          <img src="{{ result['strMealThumb'] }}" alt="{{ result['strMeal'] }}">
+          <img src="{{ result['strMealThumb'] }}" alt="{{ result['strMeal'] }}" style="width: 45%">
+          <br>
         </a>
       </li>
     {% endfor %}
   </ul>
+</div>
 </body>
 </html>
 {% endblock %}

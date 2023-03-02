@@ -1,22 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  div.list-center {
+    text-align: center;
+  }
+  ul.card-text {
+    display: inline-block;
+    text-align: left;
+  }
+  pre {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10em 0;
+  }
+</style>
   <div class="card mb-3">
     <div class="card-body">
-      <h1 class="card-title">{{ recipe['strMeal'] }}</h1>
-      <img class="card-img-top" src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}">
-      <h2 class="card-subtitle mb-2 text-muted">Ingredients</h2>
-      <ul class="card-text">
-        {% for i in range(1, 21) %}
-          {% set ingredient_key = 'strIngredient{}'.format(i) %}
-          {% set measure_key = 'strMeasure{}'.format(i) %}
-          {% if recipe[ingredient_key] %}
-            <li>{{ recipe[measure_key] }} {{ recipe[ingredient_key] }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-      <h2 class="card-subtitle mb-2 text-muted">Instructions</h2>
+      <hr>
+      <h1 class="card-title" style="text-align: center;">{{ recipe['strMeal'] }}</h1>
+      <img class="card-img-top" src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}" style="width: 50%;">
+      <div style="background-color: rgb(235, 235, 235);">
+      <hr>
+      <h2 class="card-subtitle mb-2 text-muted" style="text-align: center;">Ingredients</h2>
+      <div class="list-center" style="background-color: rgb(235, 235, 235);">
+        <ul class="card-text">
+          {% for i in range(1, 21) %}
+            {% set ingredient_key = 'strIngredient{}'.format(i) %}
+            {% set measure_key = 'strMeasure{}'.format(i) %}
+            {% if recipe[ingredient_key] %}
+              <li>{{ recipe[measure_key] }} {{ recipe[ingredient_key] }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <hr>
+    </div>
+      <h2 class="card-subtitle mb-2 text-muted" style="text-align: center;">Instructions</h2>
       <p class="card-text">{{ recipe['strInstructions'] }}</p>
+    </div>
+    <div>
+      <br><br>
     </div>
   </div>
 {% endblock %}
