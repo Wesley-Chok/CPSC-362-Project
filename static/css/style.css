@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(219, 219, 219, 0.918);
+    background-color: rgb(228, 228, 228);
 }
 
 .site-header {
@@ -7,30 +7,32 @@ body {
 }
 
 .navbar {
-    background-color: aquamarine;
+    background-color: #a1cf99;
 }
 
 .footer {
     position: fixed;
+    display: inline-block;
+    padding: 8px 16px;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 10px;
-    background-color: #f8f9fa;
     border-top: 1px solid #dee2e6;
     text-align: center;
-}
-
-.footer a.button {
-    display: inline-block;
-    padding: 8px 16px;
     font-size: 14px;
     font-weight: 600;
-    text-transform: uppercase;
-    color: #fff;
-    background-color: #007bff;
+    background-color: #fff;
     border-radius: 4px;
+}
+
+a.home-button {
+    color: #bdbdbd;
     text-decoration: none;
+    transition: color 0.5s;
+}
+
+a.home-button:hover {
+    color: #696969;
 }
 
 img {
