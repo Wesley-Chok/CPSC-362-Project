@@ -4,10 +4,43 @@ body {
 
 .site-header {
     margin: 0 auto;
+    background-image: url('images/recipe-header.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.site-header-content {
+    padding: 35px 15px;
+    background-color: rgb(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-size: 3em;
+}
+
+a.navbar-brand:hover {
+    color: #ffffff;
 }
 
 .navbar {
     background-color: #a1cf99;
+}
+
+.d-flex {
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.425);
+}
+
+.form-control {
+    border-radius: 50px 0px 0px 50px;
+    border-width: 0px;
+}
+
+.btn {
+    border-radius: 0px 50px 50px 0px;
+    padding-left: 0.55rem;
+    background-color: rgb(20, 114, 83);
 }
 
 .footer {
