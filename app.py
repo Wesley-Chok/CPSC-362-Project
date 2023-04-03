@@ -1,13 +1,26 @@
 from flask import Flask, render_template, request
+from random import choice
 import requests
 import logging
 
 API_URL = 'https://www.themealdb.com/api/json/v1/1/'
 
+def random():
+    url = 'https://www.themealdb.com/api/json/v1/1/random.php'
+    response = requests.get(url)
+    data = response.json()
+    return data['meals']
+
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('base.html')
+    random_recipes = random()
+    random_recipes = []
+    for i in range(15):
+        recipe = random()
+        if recipe:
+            random_recipes.append(recipe[0])
+    return render_template('base.html', random_recipes=random_recipes)
 
 @app.route('/search')
 def search():
