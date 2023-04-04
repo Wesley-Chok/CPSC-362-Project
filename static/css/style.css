@@ -15,6 +15,10 @@ body {
     text-align: center;
 }
 
+#navbarNav {
+    margin: 0 auto;
+}
+
 .navbar-brand {
     color: #ffffff;
     font-size: 3em;
@@ -28,19 +32,34 @@ a.navbar-brand:hover {
     background-color: #a1cf99;
 }
 
+.bi-search {
+    fill: white;
+}
+
 .d-flex {
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.425);
+    box-shadow: 2px 3px 4px rgba(93, 149, 109, 0.97);
+    margin: 8px 0px;
+    outline: none;
+    border: 0px !important;
 }
 
 .form-control {
     border-radius: 50px 0px 0px 50px;
     border-width: 0px;
+    border: none;
+    outline: none;
+    border: 0px !important;
+    transition: background-color 0.5s;
 }
 
 .btn {
     border-radius: 0px 50px 50px 0px;
     padding-left: 0.55rem;
     background-color: rgb(20, 114, 83);
+}
+
+.btn:hover {
+    background-color: #51a772;
 }
 
 .footer {
@@ -97,4 +116,19 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+*:focus {
+    border: none !important;
+    outline: none !important;
+}
+
+*:active {
+    border: none !important;
+}
+
+.form-control:focus {
+    background-color: #d6d6d6;
+    border-width: 0 !important;
+    outline-width: 0 !important;
 }
