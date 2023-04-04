@@ -34,24 +34,18 @@
 
     <div class="container">
         {% block content %}
-        <div class = "container">
-            <div class = "row">
-                <div class = "col-sm">
-                 <a href = "/recipe/53065">
-                    <img src = "https:/www.themealdb.com/images/media/meals/g046bb1663960946.jpg" width = "95%">
+        <div class="row">
+            {% for recipe in random_recipes %}
+            <div class="col-sm-4">
+                <a href="/recipe/{{ recipe['idMeal'] }}">
+                    <img src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}" width="100%">
                 </a>
-                </div>
-                <div class = "col-sm">
-                    2
-                </div>
-                <div class = "col-sm">
-                    3
-                </div>
+                <h4>{{ recipe['strMeal'] }}</h4>
             </div>
+            {% endfor %}
         </div>
         {% endblock %}
     </div>
-    <div><br><br></div>
 
     <div class="footer">
         <a class="home-button" href="{{ url_for('home') }}">
