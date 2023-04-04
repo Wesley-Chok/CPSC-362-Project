@@ -9,17 +9,15 @@ def random():
     url = 'https://www.themealdb.com/api/json/v1/1/random.php'
     response = requests.get(url)
     data = response.json()
-    return data['meals']
+    return data['meals'][0]
 
 app = Flask(__name__)
+
 @app.route('/')
 def home():
-    random_recipes = random()
-    random_recipes = []
-    for i in range(15):
-        recipe = random()
-        if recipe:
-            random_recipes.append(recipe[0])
+    random_recipe = random()
+    random_recipes = [random_recipe]
+    random_recipes.extend([random() for _ in range(15)])
     return render_template('base.html', random_recipes=random_recipes)
 
 @app.route('/search')
