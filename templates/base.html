@@ -21,11 +21,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
                 <form class="d-flex rounded-pill" method="get" action="{{ url_for('search') }}">
-                    <input class="form-control me-2" type="search" name="query" placeholder="Search for recipes" aria-label="Search">
-                    <button class="btn search-btn" type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                          </svg>
+                    <input class="form-control me-2 shadow-none" type="search" name="query" placeholder="Search for recipes" aria-label="Search">
+                    <button class="btn search-btn shadow-none" type="submit">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </div>
                     </button>
                 </form>
             </div>
@@ -38,9 +40,17 @@
             {% for recipe in random_recipes %}
             <div class="col-sm-4">
                 <a href="/recipe/{{ recipe['idMeal'] }}">
-                    <img src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}" width="100%">
+                    <div class="card recipe-card">
+                        <div class="recipe-img-zoom">
+                            <img class="card-img recipe-card-img" src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}" width="100%">
+                        </div>
+                        <div class="recipe-card-hover-overlay"></div>
+                        <div class="recipe-card-overlay"></div>
+                        <div class="recipe-card-text">
+                            <h4>{{ recipe['strMeal'] }}</h4>
+                        </div>
+                    </div>
                 </a>
-                <h4>{{ recipe['strMeal'] }}</h4>
             </div>
             {% endfor %}
         </div>

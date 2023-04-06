@@ -49,13 +49,26 @@ a.navbar-brand:hover {
     border: none;
     outline: none;
     border: 0px !important;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s ease;
+}
+
+.form-control::placeholder {
+    transition: 0.5s ease;
+}
+
+.form-control:focus::placeholder {
+    color: #9a7b4e;
 }
 
 .btn {
     border-radius: 0px 50px 50px 0px;
     padding-left: 0.55rem;
     background-color: rgb(20, 114, 83);
+    transition: 0.5s ease;
+}
+
+.search-btn {
+    padding: 0px 12px 0px 10px;
 }
 
 .btn:hover {
@@ -80,7 +93,7 @@ a.navbar-brand:hover {
 a.home-button {
     color: #bdbdbd;
     text-decoration: none;
-    transition: color 0.5s;
+    transition: color 0.5s ease;
 }
 
 a.home-button:hover {
@@ -128,7 +141,85 @@ ul {
 }
 
 .form-control:focus {
-    background-color: #d6d6d6;
+    background-color: #fff8df;
     border-width: 0 !important;
     outline-width: 0 !important;
+}
+
+.container {
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.recipe-card {
+    position: relative;
+    color: white;
+    box-shadow: 4px 5px 8px rgb(86, 95, 95, 0.50);
+    border: 0px;
+}
+
+.recipe-card, .recipe-card-overlay, .recipe-card-hover-overlay, .recipe-img-zoom {
+    border-radius: 15px;
+}
+
+.recipe-card-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0) 50%);
+}
+
+.recipe-card-hover-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: linear-gradient(45deg, rgba(155,224,159,0.4) 0%, rgba(238,255,181,0.4) 100%);
+}
+
+.recipe-card-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+}
+
+.recipe-card-img {
+    background-color: rgb(0, 0, 0, 0.31);
+}
+
+.recipe-img-zoom {
+    overflow: hidden;
+}
+
+.recipe-img-zoom img {
+    transition: transform 0.5s ease;
+}
+
+.recipe-card:hover .recipe-img-zoom img {
+    transform: scale(1.15);
+}
+
+.recipe-card:hover .recipe-card-hover-overlay {
+    opacity: 1;
+}
+
+div svg {
+    height: 36px;
+}
+
+.col-sm-4 {
+    margin-bottom: 30px;
 }
