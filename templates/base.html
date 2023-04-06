@@ -36,6 +36,9 @@
 
     <div class="container">
         {% block content %}
+        <div class="card mb-3">
+        <div class="card-body">
+            <hr>
         <div class="row">
             {% for recipe in random_recipes %}
             <div class="col-sm-4">
@@ -53,6 +56,9 @@
                 </a>
             </div>
             {% endfor %}
+        </div>
+        <hr>
+        </div>
         </div>
         {% endblock %}
     </div>

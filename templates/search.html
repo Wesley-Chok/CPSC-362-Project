@@ -1,18 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="card mb-3">
+<div class="card-body">
 <h1>Search Results for "{{ query }}"</h1>
+<hr>
 <div class="search-center">
-    <ul style="display: inline-block; text-align: center;">
-    {% for result in results %}
-        <li style="text-align: center; display: inline-block;">
-        <a href="/recipe/{{ result['idMeal'] }}">
-            {{ result['strMeal'] }}
-            <img src="{{ result['strMealThumb'] }}" alt="{{ result['strMeal'] }}" style="width: 45%">
-            <br>
-        </a>
-        </li>
+    <div class="row">
+        {% for result in results %}
+            <div class="col-sm-4">
+                <a href="/recipe/{{ result['idMeal'] }}">
+                    <div class="card recipe-card">
+                        <div class="recipe-omg-zoom">
+                            <img class="card-img recipe-card-img" src="{{ result['strMealThumb'] }}" alt ="{{ result['strMeal'] }}" width="100%">
+                        </div>
+                        <div class="recipe-card-hover-overlay"></div>
+                        <div class="recipe-card-overlay"></div>
+                        <div class="recipe-card-text">
+                            <h4>{{ result['strMeal'] }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
     {% endfor %}
-    </ul>
-</div>
+    </div>
+    </div>
+    </div>
+    <hr>
 {% endblock %}
+</div>
