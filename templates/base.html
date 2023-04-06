@@ -37,28 +37,28 @@
     <div class="container">
         {% block content %}
         <div class="card mb-3">
-        <div class="card-body">
-            <hr>
-        <div class="row">
-            {% for recipe in random_recipes %}
-            <div class="col-sm-4">
-                <a href="/recipe/{{ recipe['idMeal'] }}">
-                    <div class="card recipe-card">
-                        <div class="recipe-img-zoom">
-                            <img class="card-img recipe-card-img" src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}" width="100%">
+            <div class="card-body">
+                <hr>
+                <div class="row">
+                    {% for recipe in random_recipes %}
+                        <div class="col-sm-4">
+                            <a href="/recipe/{{ recipe['idMeal'] }}">
+                                <div class="card recipe-card">
+                                    <div class="recipe-img-zoom">
+                                        <img class="card-img recipe-card-img" src="{{ recipe['strMealThumb'] }}" alt="{{ recipe['strMeal'] }}" width="100%">
+                                    </div>
+                                    <div class="recipe-card-hover-overlay"></div>
+                                    <div class="recipe-card-overlay"></div>
+                                    <div class="recipe-card-text">
+                                    <h4>{{ recipe['strMeal'] }}</h4>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="recipe-card-hover-overlay"></div>
-                        <div class="recipe-card-overlay"></div>
-                        <div class="recipe-card-text">
-                            <h4>{{ recipe['strMeal'] }}</h4>
-                        </div>
-                    </div>
-                </a>
+                    {% endfor %}
+                </div>
+                <hr>
             </div>
-            {% endfor %}
-        </div>
-        <hr>
-        </div>
         </div>
         {% endblock %}
     </div>

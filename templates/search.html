@@ -2,29 +2,29 @@
 
 {% block content %}
 <div class="card mb-3">
-<div class="card-body">
-<h1>Search Results for "{{ query }}"</h1>
-<hr>
-<div class="search-center">
-    <div class="row">
-        {% for result in results %}
-            <div class="col-sm-4">
-                <a href="/recipe/{{ result['idMeal'] }}">
-                    <div class="card recipe-card">
-                        <div class="recipe-omg-zoom">
-                            <img class="card-img recipe-card-img" src="{{ result['strMealThumb'] }}" alt ="{{ result['strMeal'] }}" width="100%">
-                        </div>
-                        <div class="recipe-card-hover-overlay"></div>
-                        <div class="recipe-card-overlay"></div>
-                        <div class="recipe-card-text">
-                            <h4>{{ result['strMeal'] }}</h4>
-                        </div>
+    <div class="card-body">
+        <h1>Search Results for "{{ query }}"</h1>
+        <hr>
+        <div class="search-center">
+            <div class="row">
+                {% for result in results %}
+                    <div class="col-sm-4">
+                        <a href="/recipe/{{ result['idMeal'] }}">
+                            <div class="card recipe-card">
+                                <div class="recipe-omg-zoom">
+                                    <img class="card-img recipe-card-img" src="{{ result['strMealThumb'] }}" alt ="{{ result['strMeal'] }}" width="100%">
+                                </div>
+                                <div class="recipe-card-hover-overlay"></div>
+                                <div class="recipe-card-overlay"></div>
+                                <div class="recipe-card-text">
+                                    <h4>{{ result['strMeal'] }}</h4>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                {% endfor %}
             </div>
-    {% endfor %}
-    </div>
-    </div>
+        </div>
     </div>
     <hr>
 {% endblock %}
