@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from random import choice
 import requests
 import logging
 
@@ -15,9 +14,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    random_recipe = random()
-    random_recipes = [random_recipe]
-    random_recipes.extend([random() for _ in range(15)])
+    random_recipes = []
+    i = 0
+    while i < 15:
+        random_recipes.append(random())
+        i += 1
     return render_template('base.html', random_recipes=random_recipes)
 
 @app.route('/search')
