@@ -246,7 +246,7 @@ div svg {
 .recipe-page-img-container {
     display: flex;
     width: 100%;
-    max-height: 400px;
+    max-height: 450px;
     overflow: hidden;
     align-items: center;
 }
