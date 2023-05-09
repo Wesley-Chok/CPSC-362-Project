@@ -2,19 +2,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hourglass.css') }}">
 </head>
 <body>
+    <div class="hourglass"></div>
+    <script>
+        $(document).ready(function() {
+            $(".hourglass").hide();
+    
+            $(window).on('beforeunload', function() {
+                $(".hourglass").show();
+            });
+    
+            $(window).on('load', function() {
+                $(".hourglass").hide();
+            });
+        });
+    </script>
     <header class="site-header">
         <div class="site-header-content">
             <a class="navbar-brand" href="{{ url_for('home')}}">Recipe App</a>
         </div>
     </header>
-
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container-fluid">
             <div id="navbarNav">
@@ -62,7 +78,6 @@
         </div>
         {% endblock %}
     </div>
-
     <div class="footer">
         <a class="home-button" href="{{ url_for('home') }}">
             <div class="home-button-container">
@@ -75,6 +90,5 @@
             </div>
         </a>
     </div>
-
 </body>
 </html>

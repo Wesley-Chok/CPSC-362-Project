@@ -18,6 +18,7 @@ body {
     background-image: url('images/recipe-header.jpg');
     background-position: center;
     background-size: cover;
+    z-index: 999;
 }
 
 .site-header-content {
