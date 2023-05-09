@@ -15,17 +15,48 @@ body {
 
 .site-header {
     margin: 0 auto;
-    background-image: url('images/recipe-header.jpg');
     background-position: center;
     background-size: cover;
-    z-index: 999;
-}
-
+    position: relative;
+    animation-name: slideshow;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    transition: opacity 1s ease-in-out;
+  }
 .site-header-content {
     padding: 35px 15px;
     background-color: rgb(0, 0, 0, 0.4);
     text-align: center;
 }
+
+@keyframes slideshow {
+    0% {
+      background-image: url('images/recipe-header.jpg');
+    }
+    14.2% {
+      background-image: url('images/recipe-header2.jpg');
+    }
+    28.4% {
+        background-image: url('images/recipe-header3.jpg');
+    }
+    42.6% {
+        background-image: url('images/recipe-header4.jpg');
+    }
+    56.8% {
+        background-image: url('images/recipe-header5.jpg');
+    }
+    71% {
+        background-image: url('images/recipe-header6.jpg');
+    }
+    85.2% {
+      background-image: url('images/recipe-header7.jpg');
+    }
+    100% {
+        background-image: url('images/recipe-header.jpg');
+    }
+  }
 
 #navbarNav {
     margin: 0 auto;
